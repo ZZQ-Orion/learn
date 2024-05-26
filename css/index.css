@@ -1,0 +1,314 @@
+/* 去除默认样式（一般直接复制） */
+* {
+    margin: 0;
+    padding: 0;
+    /* 內减模式 */
+    box-sizing: border-box;
+}
+
+li {
+    /* 去掉列表前面的序号 */
+    list-style: none;
+}
+a {
+    /* 去掉颜色下划线 */
+    text-decoration: none;
+}
+
+/* 去除浮动 */
+.clearfix::before,.clearfix::after {
+    content: "";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+}
+
+/* 总背景色 */
+body {
+    background-color: #f3f5f7;
+}
+
+/* 版心居中 */
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 头部（此处以logo高度作为头部高度，也可以带上空白部分） */
+.header {
+    height: 42px;
+    /* 此处margin第二个值不能用0，会和wrapper的冲突 */
+    margin: 30px auto;
+    /* background-color: pink; */
+}
+/* logo */
+h1 {
+    float: left;
+}
+/* 导航 */
+.nav {
+    float: left;
+    margin-left: 70px;
+    height: 42px;
+}
+.nav li {
+    float: left;
+    margin-right: 26px;
+}
+.nav li a {
+    /* a标签是行内元素，设置样式不会生效，需要设置成行内块元素，这里也可以设置成块级元素，因为li已经浮动过变成了行内块元素，而a只是li里边的一个块级元素，可以一行排 */
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 9px;
+    font-size: 18px;
+    color: #050505;
+}
+.nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+/* 搜索 */
+.search {
+    float: left;
+    width: 412px;
+    height: 40px;
+    border: #00a4ff 1px solid;
+    margin-left: 59px;
+}
+.search input {
+    float: left;
+    padding-left: 20px;
+    /* 量出来是362，实际写360，原因同下 */
+    width: 360px;
+    /* 父级是40了，输入框不能是40，因为內减模式使父级父级40px里的2px为border，实际可输入框的大小是38px，所以输入框应为38px */
+    height: 38px;
+    border: 0;
+}
+.search button {
+    float: left;
+    width: 50px;
+    height: 40px;
+    border: 0;
+    background-image: url(../images/btn.png);
+}
+/* 用户 */
+.user {
+    float: right;
+    margin-right: 35px;
+    /* user的高为42px */
+    height: 42px;
+    /* 字在42px中垂直居中 */
+    line-height: 42px;
+}
+.user img {
+    /* 图片垂直居中 */
+    vertical-align: middle;
+}
+.user span {
+    font-size: 14px;
+    color: #666;
+}
+
+/* banner */
+.banner {
+    height: 420px;
+    background-color: #1c036c;
+
+}
+.banner .wrapper {
+    height: 420px;
+    background-image: url(../images/banner2.png);
+}
+.banner .left {
+    float: left;
+    /* padding: 28px 20px; ,不用设置上内边距,用行高拉开就行*/
+    padding: 0 20px;
+    width: 190px;
+    height: 420px;
+    background-color: rgba(0, 0, 0, .3);
+	/* opacity: 0.3;,不能用,会继承给字体 */
+    /* 行高给父级left设置就行,因为控制文字属性的可以继承 */
+    line-height: 44px;
+}
+.banner .left span {
+    float: right;
+}
+.banner .left a {
+    /* 为什么这两个不可以继承 */
+    font-size: 14px;
+    color: #fff;
+}
+.banner .right {
+    float: right;
+    margin-top: 50px;
+    width: 228px;
+	height: 300px;
+	background-color: #ffffff;
+}
+.banner .right h2 {
+    height: 48px;
+    background-color: #9bceea;
+    /* 水平居中 */
+    text-align: center;
+    /* 垂直居中 */
+    line-height: 48px;
+    color: #ffffff;
+    font-size: 18px;
+}
+.banner .right .content {
+    padding: 0 18px;
+}
+.banner .right .content dl {
+    /* 量出来是19px，不能给19，因为是内边距加字体行高的和 */
+    padding: 12px 0;
+    border-bottom: #e5e5e5 2px solid;
+}
+.banner .right .content dt {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+.banner .right .content dd {
+    font-size: 14px;
+    color: #4e4e4e;
+}
+.banner .right .more {
+    display: block;
+    margin: 4px auto 0;
+    text-align: center;
+    line-height: 36px;
+    width: 200px;
+    height: 40px;
+    border: #9bceea solid 2px;
+
+    font-size: 16px;
+    color: #00a4ff;
+    /* 字体加粗是700 */
+    font-weight: 700;
+}
+
+/* 精品推荐 */
+.goods {
+    margin-top: 8px;
+    padding-left: 34px;
+    padding-right: 26px;
+    height: 60px;
+    background-color: #fff;
+    /* 盒子阴影 */
+    box-shadow: 0px 2px 3px 0px 
+		rgba(118, 118, 118, 0.2);
+    /* 行高可继承 */
+    line-height: 60px;
+}
+.goods h2 {
+    float: left;
+    margin: 0 35px 0 0;
+    font-size: 16px;
+    color: #00a4ff;
+    /* 字体不加粗默认是400 */
+    font-weight: 400;
+}
+.goods ul {
+    float: left;
+}
+.goods ul li {
+    float: left;
+}
+.goods ul li a {
+    padding: 0 35px;
+    /* border给a加不给li加，使高度跟字一样高 */
+    border-left: 1px solid #bfbfbf;
+    font-size: 16px;
+    color: #050505;
+}
+.goods .xingqu {
+    float: right;
+    font-size: 14px;
+    color: #00a4ff;
+}
+
+/* 精品课程 */
+.courses {
+    margin-top: 35px;
+}
+.courses .title {
+    height: 40px;
+}
+.courses .title h2 {
+    float: left;
+    font-size: 20px;
+    font-weight: normal;
+    color: #494949;
+}
+.courses .title a {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+.courses .content li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+}
+/* 选择第几个 */
+.courses .content li:nth-child(5n) {
+    margin-right: 0;
+}
+.courses .content li h3 {
+    /* 量出来是25，但是给20，原因还是25为内边距与行高之和 */
+    padding: 20px;
+    font-size: 14px;
+    color: #050505;
+}
+.courses .content li p {
+    padding: 0 20px;
+    font-size: 12px;
+    color: #999;
+}
+.courses .content li span {
+    color: #ff7c2d;
+}
+
+/* 版权区域 */
+.footer {
+    margin-top: 40px;
+    padding: 30px;
+    height: 417px;
+    background-color: #fff;
+}
+.footer .left {
+    float: left;
+}
+.footer .left p {
+    /* 同理（行高与边距之和） */
+    margin: 20px 0 10px;
+    font-size: 12px;
+    color: #666;
+}
+.footer .left a {
+    /* 因为a是行内元素，样式不生效，所以display一下（left的浮动不可继承？） */
+    display: inline-block;
+    width: 120px;
+    height: 36px;
+    border: #00a4ff 2px solid;
+    font-size: 16px;
+    color: #00a4ff;
+    text-align: center;
+    line-height: 32px;
+}
+.footer .right dl {
+    float: right;
+    margin-left: 120px;
+}
+.footer .right dt {
+    font-size: 16px;
+    color: #333;
+}
+.footer .right dd {
+    font-size: 12px;
+    color: #333
+}
